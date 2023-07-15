@@ -23,16 +23,21 @@
     <div class="container">
       <div class="card quiz-card">
         <img src="img/quiz.png" class="card-img-top" id="headerImage"/>
-        <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-            <div class="progress-bar" style="width: 25%">25%</div>
+
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" id="progress-bar" style="width: 0%;">25%</div>
         </div>
+
         <div class="card-body" id="endScreen" style="display: none;">
             <p class="text-center">Quiz beendet</p>
 
             <div class="text-center">
                 Du hast <b id="rightAnswer">0</b> Fragen von <b id="question_sum_end">0</b> richtig beantwortet.
             </div>
-        </div>     
+            <div class="button-row">
+              <button onclick="restartGame()" class="btn btn-primary" >Erneut Spielen</button>
+            </div>
+          </div>     
 
         <div class="card-body" id="questionBody">
           <h5 class="card-title" id="questiontext" >Frage</h5>

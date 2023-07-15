@@ -39,6 +39,9 @@ let questions = [
 
 let currentQuestion = 0;
 let rightAnswers = 0;
+let audioSuccess = new Audio("audio/success.mp3");
+let audioWrong = new Audio("audio/wrong.mp3");
+
 
 function init() {
     document.getElementById("question_sum").innerHTML = questions.length;
@@ -49,7 +52,7 @@ function init() {
 function showQuestion() {
     
     if(currentQuestion >= questions.length) {
-        //Todo End Screen
+        
         document.getElementById("endScreen").style = "";
         document.getElementById("questionBody").style = "display: none";
         document.getElementById("question_sum_end").innerHTML = questions.length;
@@ -57,7 +60,15 @@ function showQuestion() {
         document.getElementById("headerImage").src = "img/brain result.png";
     }
     else{
+
+        let percent = (currentQuestion + 1)/ questions.length ;
+        percent = Math.round(percent * 100);
+        document.getElementById("progress-bar").innerHTML = `${percent} %`;
+        document.getElementById("progress-bar").style= `width: ${percent}%;`;
+
         let question = questions[currentQuestion];
+
+
         document.getElementById("current_question").innerHTML = currentQuestion + 1;
         document.getElementById("questiontext").innerHTML = question["question"];
         document.getElementById("answer_1").innerHTML = question["answer_1"];
@@ -76,11 +87,13 @@ function answer(selection) {
 
     if(answerNumber == right) {
         list.add("bg-success");
+        audioSuccess.play();
         rightAnswers++;       
     }
     else{
         list.add("bg-danger");
         document.getElementById(idRight).parentNode.classList.add("bg-success");
+        audioWrong.play();
     }
 
     document.getElementById("next_button").disabled = false;
@@ -103,4 +116,15 @@ function resetAnswerButtons() {
     document.getElementById("answer_3").parentNode.classList.remove("bg-success");
     document.getElementById("answer_4").parentNode.classList.remove("bg-danger");
     document.getElementById("answer_4").parentNode.classList.remove("bg-success");
+}
+
+function restartGame() {
+    document.getElementById("headerImage").src = "img/quiz.png";
+    document.getElementById("questionBody").style = "";
+    document.getElementById("endScreen").style = "display: none";
+    
+    rightAnswers = 0;
+    currentQuestion = 0;
+    init();
+    
 }
