@@ -21,6 +21,9 @@
     ></script>
   </head>
   <body onload="init()">
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" id="progress-bar" style="width: 0%;">25%</div>
+    </div>
     <div class="wholecard">
       <div class="content">
         <div class="landing_page">
@@ -31,25 +34,25 @@
             <div class="sidebar_text">            
               <ul class="nav nav-pills flex-column mb-auto">
                 <li >
-                  <a href="#" class="nav-link text-white" aria-current="page">
+                  <a href="#" class="nav-link text-white" onclick="changeQuestions(questionsHTML)">
                     <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
                     HTML
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="nav-link text-white">
+                  <a href="#" class="nav-link text-white" onclick="changeQuestions(questionsCSS)">
                     <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
                     CSS
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="nav-link text-white">
+                  <a href="#" class="nav-link text-white" onclick="changeQuestions(questionsJS)">
                     <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
                     JS
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="nav-link text-white">
+                  <a href="#" class="nav-link text-white" onclick="changeQuestions(questionsJAVA)">
                     <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
                     JAVA
                   </a>
@@ -57,21 +60,17 @@
               </ul>
             </div>
           </div>
-          <div class="welcomeSection" style="display: none;">
-            <div class="welcometext">
-                <div class="content_question" >
-                    <h1>Welcome to</h1>
-                    <h1>The Awesome HTML Quiz</h1>
-                    <h2>Ready for the Challenge?</h2>
-                    <button>START NOW</button>
-                </div>
-            </div>
+          <div class="welcomeSection" style="display: none;">            
+              <div class="content_question" >
+                  <h1>Welcome to</h1>
+                  <h1>The Awesome HTML Quiz</h1>
+                  <h2>Ready for the Challenge?</h2>
+                  <button>START NOW</button>
+              </div>            
           </div>
         
 
-        <!-- <div class="progress">
-            <div class="progress-bar" role="progressbar" id="progress-bar" style="width: 0%;">25%</div>
-        </div>  -->   
+        
 
         <!--questions-->
         <div class="card-body" id="questionBody" >
