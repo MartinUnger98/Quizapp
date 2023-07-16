@@ -55,7 +55,7 @@ function showQuestion() {
        showEndScreen();
     }
     else{
-        updateProgressbar();
+        /* updateProgressbar(); */
         updateToNextQuestion();
     }
 }
@@ -69,7 +69,7 @@ function showEndScreen() {
     document.getElementById("questionBody").style = "display: none";
     document.getElementById("question_sum_end").innerHTML = questions.length;
     document.getElementById("rightAnswer").innerHTML = rightAnswers;
-    document.getElementById("headerImage").src = "img/brain result.png";
+    /* document.getElementById("headerImage").src = "img/brain result.png";*/
 }
 
 function updateToNextQuestion() {
@@ -83,12 +83,12 @@ function updateToNextQuestion() {
     document.getElementById("answer_4").innerHTML = question["answer_4"];
 }
 
-function updateProgressbar() {
+/* function updateProgressbar() {
     let percent = (currentQuestion + 1)/ questions.length ;
     percent = Math.round(percent * 100);
     document.getElementById("progress-bar").innerHTML = `${percent} %`;
     document.getElementById("progress-bar").style= `width: ${percent}%;`;
-}
+} */
 
 function answer(selection) {
     let right = questions[currentQuestion]["right_answer"];
@@ -129,7 +129,7 @@ function resetAnswerButtons() {
 
 
 function restartGame() {
-    document.getElementById("headerImage").src = "img/quiz.png";
+    /* document.getElementById("headerImage").src = "img/quiz.png"; */
     document.getElementById("questionBody").style = "";
     document.getElementById("endScreen").style = "display: none";
     
