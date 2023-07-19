@@ -4,6 +4,10 @@ body {
     font-family: 'Rubik', sans-serif !important;
 }
 
+.center {
+    display: flex;
+    justify-content: center;
+}
 
 .width-100 {
     width: 100%;
@@ -33,20 +37,22 @@ body {
 
 .wholecard {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-evenly;
     height: 100vh;
+    flex-direction: column;
 }
 
 .content {
     width: 85%;
     border-radius: 16px;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+    margin-bottom: 16px;
 }
 
 .landing_page {
     display: flex;
     height: 75vh;
+    align-items: center;
 }
 
 .container {
@@ -58,6 +64,12 @@ body {
     
 }
 
+/* navbar */
+.navBar {
+    display: none;
+}
+
+
 /* sidebar */
 .sidebar {
     background-color: #26345B;
@@ -66,6 +78,7 @@ body {
     border-top-left-radius: 16px;
     border-bottom-left-radius: 16px;
     gap: 56px;
+    height: 100%;
     
 }
 
@@ -112,16 +125,17 @@ body {
 
 /* 2nd page */
 
-.quiz-card {
-   width: 30rem; 
+[id="questionBody"] {
+    margin-left: 24px;
+    margin-right: 24px;
 }
 
-.question-footer {
-    border-top: 1px solid rgba(0, 0, 0, 0.4);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 12px;
+.card-title {
+    text-align: center;
+}
+
+.quiz-card {
+   width: 30rem; 
 }
 
 .quiz-answer-card:hover {
@@ -143,10 +157,42 @@ body {
     margin-top: 24px;
 }
 
-.quiz-card {
-    width: 120rem;
+
+.question-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
 }
 
+
+/* responisve classes */
+
+@media (max-width: 840px) {
+    .sidebar {
+        display: none;
+    }
+
+    .navBar {
+        display: flex;
+        justify-content: center;
+        padding: 12px 50px 12px 50px;
+        background-color: #26345B;
+        border-radius: 10px;
+    }
+    
+    .navBar a{
+        color: white;
+        text-decoration: none;
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+    
+    .navBar a:hover {
+        text-decoration: underline;
+    }
+}
 
 
 

@@ -21,95 +21,106 @@
     ></script>
   </head>
   <body onload="init()">
-    <div class="progress">
-      <div class="progress-bar" role="progressbar" id="progress-bar" style="width: 0%;">25%</div>
-    </div>
-    <div class="wholecard">
-      <div class="content">
-        <div class="landing_page">
-          <div class="sidebar">
-            <div class="logo">
-              <img src="img/logo.png" alt="" >
-            </div>            
-            <div class="sidebar_text">            
-              <ul class="nav nav-pills flex-column mb-auto">
-                <li >
-                  <a href="#" class="nav-link text-white" onclick="changeQuestions(questionsHTML)">
-                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-                    HTML
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link text-white" onclick="changeQuestions(questionsCSS)">
-                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
-                    CSS
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link text-white" onclick="changeQuestions(questionsJS)">
-                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
-                    JS
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link text-white" onclick="changeQuestions(questionsJAVA)">
-                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-                    JAVA
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="welcomeSection" style="display: none;">            
-              <div class="content_question" >
-                  <h1>Welcome to</h1>
-                  <h1>The Awesome HTML Quiz</h1>
-                  <h2>Ready for the Challenge?</h2>
-                  <button>START NOW</button>
+    
+    <div class="wholecard">  
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" id="progress-bar" style="width: 0%;">25%</div>
+      </div>
+      <div class="center">
+        <nav class="navBar">
+          <a href="#" onclick="changeQuestions(questionsHTML)">HTML</a>
+          <a href="#" onclick="changeQuestions(questionsCSS)">CSS</a>
+          <a href="#" onclick="changeQuestions(questionsJS)">JS</a>
+          <a href="#" onclick="changeQuestions(questionsJAVA)">JAVA</a>
+        </nav>
+      </div>
+      <div class="center">  
+        <div class="content">
+          <div class="landing_page">
+            <div class="sidebar">
+              <div class="logo">
+                <img src="img/logo.png" alt="" >
               </div>            
-          </div>
-        
-
-        
-
-        <!--questions-->
-        <div class="card-body" id="questionBody" >
-          <h5 class="card-title" id="questiontext" >Frage</h5>
-
-          <div class="card mb-2 quiz-answer-card answer_right" onclick="answer('answer_1')">
-            <div class="card-body" id="answer_1">Antwort</div>
-          </div>
-
-          <div class="card mb-2 quiz-answer-card" onclick="answer('answer_2')">
-            <div class="card-body" id="answer_2">Antwort</div>
-          </div>
-
-          <div class="card mb-2 quiz-answer-card" onclick="answer('answer_3')">
-            <div class="card-body" id="answer_3">Antwort</div>
-          </div>
-
-          <div class="card mb-2 quiz-answer-card" onclick="answer('answer_4')">
-            <div class="card-body" id="answer_4">Antwort</div>
-          </div>
+              <div class="sidebar_text">            
+                <ul class="nav nav-pills flex-column mb-auto">
+                  <li >
+                    <a href="#" class="nav-link text-white" onclick="changeQuestions(questionsHTML)">
+                      <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+                      HTML
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="nav-link text-white" onclick="changeQuestions(questionsCSS)">
+                      <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
+                      CSS
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="nav-link text-white" onclick="changeQuestions(questionsJS)">
+                      <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+                      JS
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="nav-link text-white" onclick="changeQuestions(questionsJAVA)">
+                      <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+                      JAVA
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="welcomeSection" style="display: none;">            
+                <div class="content_question" >
+                    <h1>Welcome to</h1>
+                    <h1>The Awesome HTML Quiz</h1>
+                    <h2>Ready for the Challenge?</h2>
+                    <button onclick="startGame()">START NOW</button>
+                </div>            
+            </div>
           
-          <div class="question-footer">
-            <span>
-                <b id="current_question">1</b> von <b id="question_sum">5</b> Fragen
-            </span>            
-            <button onclick="nextQuestion()" class="btn btn-primary" id="next_button" disabled>Nächste Frage</button>
-          </div>
-        </div>
 
-        <!--endscreen-->
-        <div class="card-body" id="endScreen" style="display: none;">
-          <p class="text-center">Quiz beendet</p>
-          <div class="text-center">Du hast <b id="rightAnswer">0</b> Fragen von <b id="question_sum_end">0</b> richtig beantwortet.
-          </div>
-          <div class="button-row">
-            <button onclick="restartGame()" class="btn btn-primary" >Erneut Spielen</button>
-          </div>
+          
+
+            <!--questions-->
+            <div class="card-body" id="questionBody" >
+              <h5 class="card-title mb-2" id="questiontext" >Frage</h5>
+
+              <div class="card mb-2 quiz-answer-card" onclick="answer('answer_1')">
+                <div class="card-body" id="answer_1">Antwort</div>
+              </div>
+
+              <div class="card mb-2 quiz-answer-card" onclick="answer('answer_2')">
+                <div class="card-body" id="answer_2">Antwort</div>
+              </div>
+
+              <div class="card mb-2 quiz-answer-card" onclick="answer('answer_3')">
+                <div class="card-body" id="answer_3">Antwort</div>
+              </div>
+
+              <div class="card mb-2 quiz-answer-card" onclick="answer('answer_4')">
+                <div class="card-body" id="answer_4">Antwort</div>
+              </div>
+              
+              <div class="question-footer">
+                <span>
+                    <b id="current_question">1</b> von <b id="question_sum">5</b> Fragen
+                </span>            
+                <button onclick="nextQuestion()" class="btn btn-primary" id="next_button" disabled>Nächste Frage</button>
+              </div>
+            </div>
+
+            <!--endscreen-->
+            <div class="card-body" id="endScreen" style="display: none;">
+              <p class="text-center">Quiz beendet</p>
+              <div class="text-center">Du hast <b id="rightAnswer">0</b> Fragen von <b id="question_sum_end">0</b> richtig beantwortet.
+              </div>
+              <div class="button-row">
+                <button onclick="restartGame()" class="btn btn-primary" >Erneut Spielen</button>
+              </div>
+            </div>
+          </div>  
         </div>
-      </div>  
       </div>
     </div>
   </body>

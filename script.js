@@ -38,12 +38,12 @@ let questionsHTML = [
 
 let questionsCSS = [
     {
-      question: "Welche der folgenden Aussagen zur Einbindung von CSS in eine HTML-Datei ist korrekt?",
-      answer_1: "CSS kann nur inline innerhalb von HTML-Tags verwendet werden.",
-      answer_2: "CSS kann ausschließlich in externen JavaScript-Dateien eingebunden werden.",
-      answer_3: "CSS kann inline, in einem <style> -Tag im <head> -Bereich oder in einer externen CSS-Datei eingebunden werden.",
-      answer_4: "CSS ist nur über ein separates HTML-Attribut namens 'css' einfügbar.",
-      right_answer: 3
+        question: "Welche CSS-Eigenschaft wird verwendet, um den Text in einem Element fett darzustellen?",
+        answer_1: "a) font-weight",
+        answer_2: "b) text-style",
+        answer_3: "c) font-decoration",
+        answer_4: "d) text-bold",
+        right_answer: 1
     },
     {
       question: "Welche CSS-Eigenschaft wird verwendet, um den Abstand zwischen den Elementrändern zu steuern?",
@@ -70,12 +70,12 @@ let questionsCSS = [
       right_answer: 4
     },
     {
-      question: "Wie fügt man einen externen CSS-Code in eine HTML-Datei ein?",
-      answer_1: "Mit dem <link> -Tag und dem Attribut 'stylesheet'.",
-      answer_2: "Mit dem <style> -Tag und dem Attribut 'external'.",
-      answer_3: "Mit dem <css> -Tag und dem Attribut 'src'.",
-      answer_4: "Externes CSS kann nicht in HTML eingefügt werden.",
-      right_answer: 1
+        question: "Was ist die korrekte Art, eine Zeichenkette in JavaScript in Großbuchstaben umzuwandeln?",
+        answer_1: "a) string.toLower()",
+        answer_2: "b) string.upperCase()",
+        answer_3: "c) string.toUpperCase()",
+        answer_4: "d) string.convertCase('upper')",
+        right_answer: 3
     },
     {
       question: "Welche CSS-Eigenschaft wird verwendet, um einen Hintergrundbild auf einer Webseite festzulegen?",
@@ -132,29 +132,29 @@ let questionsJS = [
 
 let questionsJAVA = [
     {
-        question: "Was ist die Ausgabe des folgenden Codes?\nlet x = 5;\nconsole.log(x++);\nconsole.log(x);",
-        answer_1: "a) 5\n   5",
-        answer_2: "b) 5\n   6",
-        answer_3: "c) 6\n   6",
-        answer_4: "d) 6\n   5",
+        question: "Wie deklariert man eine Variable in JavaScript?",
+        answer_1: "a) var",
+        answer_2: "b) let",
+        answer_3: "c) const",
+        answer_4: "d) variable",
         right_answer: 2
     },
     {
-        question: "Welche Aussage zum 'String' in JavaScript ist korrekt?",
-        answer_1: "a) String ist ein primitiver Datentyp in JavaScript.",
-        answer_2: "b) Strings können mit dem '+'-Operator konkateniert werden.",
-        answer_3: "c) Strings können mit der 'charAt()' Methode manipuliert werden.",
-        answer_4: "d) Strings können mit der 'length()' Methode verglichen werden.",
+        question: "Was ist die korrekte Art, ein leeres Array in JavaScript zu erstellen?",
+        answer_1: "a) const arr = new Array();",
+        answer_2: "b) const arr = [];",
+        answer_3: "c) const arr = {};",
+        answer_4: "d) const arr = emptyArray();",
         right_answer: 2
     },
     {
-        question: "Welche der folgenden Aussagen über Funktionen in JavaScript ist richtig?",
-        answer_1: "a) Funktionen können nicht in Variablen gespeichert werden.",
-        answer_2: "b) Funktionen können keine Parameter haben.",
-        answer_3: "c) Funktionen können nur in der globalen Scope definiert werden.",
-        answer_4: "d) Funktionen können sowohl benannt als auch anonym sein und in Variablen gespeichert werden.",
-        right_answer: 4
-    } 
+        question: "Was ist das Ergebnis von '5' + 3 in JavaScript?",
+        answer_1: "a) '8'",
+        answer_2: "b) 8",
+        answer_3: "c) '53'",
+        answer_4: "d) NaN",
+        right_answer: 3
+    }
 ];
 
 
@@ -263,6 +263,7 @@ function restartGame() {
 }
 
 function changeQuestions(theme) {
-    questions = theme
+    currentQuestion = 0;
+    questions = theme;
     init();
 }
