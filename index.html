@@ -21,13 +21,19 @@
     ></script>
   </head>
   <body onload="init()">
+    <div class="trophyContainer">
+      <img src="img/tropy.png" class="trophy">
+    </div>
     
     <div class="wholecard">  
-      <div class="progress">
+      <div class="progress" id="progress-bar-div" style="display: none;">
         <div class="progress-bar" role="progressbar" id="progress-bar" style="width: 0%;">25%</div>
       </div>
       <div class="center">
         <nav class="navBar">
+          <div class="logo_klein">
+            <img src="img/logo.png" alt="" >
+          </div>
           <a href="#" onclick="changeQuestions(questionsHTML)">HTML</a>
           <a href="#" onclick="changeQuestions(questionsCSS)">CSS</a>
           <a href="#" onclick="changeQuestions(questionsJS)">JS</a>
@@ -38,8 +44,8 @@
         <div class="content">
           <div class="landing_page">
             <div class="sidebar">
-              <div class="logo">
-                <img src="img/logo.png" alt="" >
+              <div class="center">
+                <img class="logo" src="img/logo.png" alt="" >
               </div>            
               <div class="sidebar_text">            
                 <ul class="nav nav-pills flex-column mb-auto">
@@ -70,12 +76,12 @@
                 </ul>
               </div>
             </div>
-            <div class="welcomeSection" style="display: none;">            
+            <div class="welcomeSection" id="welcomeSection" >            
                 <div class="content_question" >
                     <h1>Welcome to</h1>
-                    <h1>The Awesome HTML Quiz</h1>
+                    <h1 >The Awesome <j id="quizTheme">HTML</j> Quiz</h1>
                     <h2>Ready for the Challenge?</h2>
-                    <button onclick="startGame()">START NOW</button>
+                    <button onclick="startGame()" class="startButton">START NOW</button>
                 </div>            
             </div>
           
@@ -83,23 +89,23 @@
           
 
             <!--questions-->
-            <div class="card-body" id="questionBody" >
+            <div class="card-body" id="questionBody" style="display: none;">
               <h5 class="card-title mb-2" id="questiontext" >Frage</h5>
 
               <div class="card mb-2 quiz-answer-card" onclick="answer('answer_1')">
-                <div class="card-body" id="answer_1">Antwort</div>
+                <div class="card-body" id="answer_1"></div>
               </div>
 
               <div class="card mb-2 quiz-answer-card" onclick="answer('answer_2')">
-                <div class="card-body" id="answer_2">Antwort</div>
+                <div class="card-body" id="answer_2"></div>
               </div>
 
               <div class="card mb-2 quiz-answer-card" onclick="answer('answer_3')">
-                <div class="card-body" id="answer_3">Antwort</div>
+                <div class="card-body" id="answer_3"></div>
               </div>
 
               <div class="card mb-2 quiz-answer-card" onclick="answer('answer_4')">
-                <div class="card-body" id="answer_4">Antwort</div>
+                <div class="card-body" id="answer_4"></div>
               </div>
               
               <div class="question-footer">

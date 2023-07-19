@@ -23,6 +23,14 @@ body {
 }
 
 
+.trophy {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    height: 200px;
+}
+
+
 .logo {
     display: flex;
     justify-content: center;
@@ -77,7 +85,6 @@ body {
     width: 25%;
     border-top-left-radius: 16px;
     border-bottom-left-radius: 16px;
-    gap: 56px;
     height: 100%;
     
 }
@@ -123,6 +130,22 @@ body {
 
 }
 
+.startButton {
+    font-size: 24px;
+    background-color: rgb(255 76 18);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    width: 200px;
+    height: 45px;
+}
+
+.startButton:hover {
+    scale: 1.1;
+    cursor: pointer;
+    transition: 125ms scale ease-in-out;
+}
+
 /* 2nd page */
 
 [id="questionBody"] {
@@ -136,6 +159,11 @@ body {
 
 .quiz-card {
    width: 30rem; 
+}
+
+.quiz-answer-card {
+    display: flex;
+    flex-direction: row !important;
 }
 
 .quiz-answer-card:hover {
@@ -166,6 +194,11 @@ body {
     padding-top: 12px;
 }
 
+.questionLetter {
+    padding: 4px 9px 4px 9px;
+    background-color: #D6D6D6;
+}
+
 
 /* responisve classes */
 
@@ -177,6 +210,7 @@ body {
     .navBar {
         display: flex;
         justify-content: center;
+        align-items: center;
         padding: 12px 50px 12px 50px;
         background-color: #26345B;
         border-radius: 10px;
@@ -191,6 +225,17 @@ body {
     
     .navBar a:hover {
         text-decoration: underline;
+    }
+
+    .logo_klein img {
+        width: 50px ;  
+        height: 46px ;  
+    }
+}
+
+@media (max-width: 500px) {
+    .trophyContainer {
+        display: none;
     }
 }
 

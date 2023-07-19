@@ -39,10 +39,10 @@ let questionsHTML = [
 let questionsCSS = [
     {
         question: "Welche CSS-Eigenschaft wird verwendet, um den Text in einem Element fett darzustellen?",
-        answer_1: "a) font-weight",
-        answer_2: "b) text-style",
-        answer_3: "c) font-decoration",
-        answer_4: "d) text-bold",
+        answer_1: "font-weight",
+        answer_2: "text-style",
+        answer_3: "font-decoration",
+        answer_4: "text-bold",
         right_answer: 1
     },
     {
@@ -71,10 +71,10 @@ let questionsCSS = [
     },
     {
         question: "Was ist die korrekte Art, eine Zeichenkette in JavaScript in Großbuchstaben umzuwandeln?",
-        answer_1: "a) string.toLower()",
-        answer_2: "b) string.upperCase()",
-        answer_3: "c) string.toUpperCase()",
-        answer_4: "d) string.convertCase('upper')",
+        answer_1: "string.toLower()",
+        answer_2: "string.upperCase()",
+        answer_3: "string.toUpperCase()",
+        answer_4: "string.convertCase('upper')",
         right_answer: 3
     },
     {
@@ -133,26 +133,26 @@ let questionsJS = [
 let questionsJAVA = [
     {
         question: "Wie deklariert man eine Variable in JavaScript?",
-        answer_1: "a) var",
-        answer_2: "b) let",
-        answer_3: "c) const",
-        answer_4: "d) variable",
+        answer_1: "var",
+        answer_2: "let",
+        answer_3: "const",
+        answer_4: "variable",
         right_answer: 2
     },
     {
         question: "Was ist die korrekte Art, ein leeres Array in JavaScript zu erstellen?",
-        answer_1: "a) const arr = new Array();",
-        answer_2: "b) const arr = [];",
-        answer_3: "c) const arr = {};",
-        answer_4: "d) const arr = emptyArray();",
+        answer_1: "const arr = new Array();",
+        answer_2: "const arr = [];",
+        answer_3: "const arr = {};",
+        answer_4: "const arr = emptyArray();",
         right_answer: 2
     },
     {
         question: "Was ist das Ergebnis von '5' + 3 in JavaScript?",
-        answer_1: "a) '8'",
-        answer_2: "b) 8",
-        answer_3: "c) '53'",
-        answer_4: "d) NaN",
+        answer_1: "'8'",
+        answer_2: "8",
+        answer_3: "'53'",
+        answer_4: "NaN",
         right_answer: 3
     }
 ];
@@ -200,10 +200,10 @@ function updateToNextQuestion() {
     let question = questions[currentQuestion];
     document.getElementById("current_question").innerHTML = currentQuestion + 1;
     document.getElementById("questiontext").innerHTML = question["question"];
-    document.getElementById("answer_1").innerHTML = question["answer_1"];
-    document.getElementById("answer_2").innerHTML = question["answer_2"];
-    document.getElementById("answer_3").innerHTML = question["answer_3"];
-    document.getElementById("answer_4").innerHTML = question["answer_4"];
+    document.getElementById("answer_1").innerHTML = `<b class="questionLetter">A</b> ${question["answer_1"]}`;
+    document.getElementById("answer_2").innerHTML = `<b class="questionLetter">B</b> ${question["answer_2"]}`;
+    document.getElementById("answer_3").innerHTML = `<b class="questionLetter">C</b> ${question["answer_3"]}`;
+    document.getElementById("answer_4").innerHTML = `<b class="questionLetter">D</b> ${question["answer_4"]}`;
 }
 
 function updateProgressbar() {
@@ -254,7 +254,7 @@ function resetAnswerButtons() {
 function restartGame() {
     /* document.getElementById("headerImage").src = "img/quiz.png"; */
     document.getElementById("questionBody").style = "";
-    document.getElementById("endScreen").style = "display: none";
+    document.getElementById("endScreen").style = "display: none;";
     
     rightAnswers = 0;
     currentQuestion = 0;
@@ -264,6 +264,33 @@ function restartGame() {
 
 function changeQuestions(theme) {
     currentQuestion = 0;
+    let themeTxt="";
+    switch(theme) {
+        case questionsHTML:
+            themeTxt="HTML";
+            break;
+        case questionsCSS:
+            themeTxt="CSS";
+            break;
+        case questionsJS:
+            themeTxt="JS";
+            break;
+        case questionsJAVA:
+            themeTxt="JAVA";
+            break;
+    }
+
+    document.getElementById("quizTheme").innerHTML = themeTxt;
+    document.getElementById("welcomeSection").style = "";
+    document.getElementById("questionBody").style = "display: none;";
+    document.getElementById("progress-bar-div").style = "display: none;";
+    
     questions = theme;
     init();
+}
+
+function startGame() {
+    document.getElementById("progress-bar-div").style = "";
+    document.getElementById("questionBody").style = "";
+    document.getElementById("welcomeSection").style = "display: none;";
 }
