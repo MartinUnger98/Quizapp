@@ -263,6 +263,20 @@ function restartGame() {
 
 function changeQuestions(theme) {
     currentQuestion = 0;
+    generateThemetxt(theme);
+
+    document.getElementById("quizTheme").innerHTML = themeTxt;
+    document.getElementById("trophy").style = "display: none;";
+    document.getElementById("welcomeSection").style = "";
+    document.getElementById("questionBody").style = "display: none;";
+    document.getElementById("progress-bar-div").style = "display: none;";
+    document.getElementById("endScreen").style = "display: none;";
+    questions = theme;
+    init();
+    document.getElementById("endScreenTheme").innerHTML = themeTxt;
+}
+
+function generateThemetxt(theme) {
     let themeTxt="";
     switch(theme) {
         case questionsHTML:
@@ -279,15 +293,7 @@ function changeQuestions(theme) {
             break;
     }
 
-    document.getElementById("quizTheme").innerHTML = themeTxt;
-    document.getElementById("trophy").style = "display: none;";
-    document.getElementById("welcomeSection").style = "";
-    document.getElementById("questionBody").style = "display: none;";
-    document.getElementById("progress-bar-div").style = "display: none;";
-    document.getElementById("endScreen").style = "display: none;";
-    questions = theme;
-    init();
-    document.getElementById("endScreenTheme").innerHTML = themeTxt;
+    return themeTxt;
 }
 
 function startGame() {
