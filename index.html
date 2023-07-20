@@ -21,7 +21,7 @@
     ></script>
   </head>
   <body onload="init()">
-    <div class="trophyContainer">
+    <div class="trophyContainer" id="trophy" style="display: none;">
       <img src="img/tropy.png" class="trophy">
     </div>
     
@@ -77,7 +77,7 @@
               </div>
             </div>
             <div class="welcomeSection" id="welcomeSection" >            
-                <div class="content_question" >
+                <div class="content_question text-center" >
                     <h1>Welcome to</h1>
                     <h1 >The Awesome <j id="quizTheme">HTML</j> Quiz</h1>
                     <h2>Ready for the Challenge?</h2>
@@ -117,12 +117,16 @@
             </div>
 
             <!--endscreen-->
-            <div class="card-body" id="endScreen" style="display: none;">
-              <p class="text-center">Quiz beendet</p>
-              <div class="text-center">Du hast <b id="rightAnswer">0</b> Fragen von <b id="question_sum_end">0</b> richtig beantwortet.
+            <div class="card-body column" id="endScreen" style="display: none;">
+              <img class="mb-4" src="img/brain result.png" alt="">
+              <p class="text-center"><b id="endScreenTheme">HTML</b> <b>QUIZ COMPLETE</b></p>
+              <div class="text-center font-size-larger">
+                <b class="orange">Your Score</b> <b id="rightAnswer">0</b>
+                <b>/</b>
+                <b id="question_sum_end">0</b>
               </div>
               <div class="button-row">
-                <button onclick="restartGame()" class="btn btn-primary" >Erneut Spielen</button>
+                <button onclick="restartGame()" class="btn btn-primary" >Replay</button>
               </div>
             </div>
           </div>  

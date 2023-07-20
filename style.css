@@ -9,6 +9,18 @@ body {
     justify-content: center;
 }
 
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    padding-left: 45px !important;
+    padding-right: 45px !important;
+}
+
 .width-100 {
     width: 100%;
 }
@@ -17,11 +29,17 @@ body {
     text-align: center;
 }
 
+.font-size-larger {
+    font-size: larger;
+}
 
 .bg-success, .bg-danger {
     color: white !important;
 }
 
+.orange {
+    color: rgb(255 76 18);
+}
 
 .trophy {
     position: absolute;
@@ -45,9 +63,10 @@ body {
 
 .wholecard {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: inherit;
     height: 100vh;
     flex-direction: column;
+    gap: 50px;
 }
 
 .content {

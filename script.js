@@ -192,7 +192,7 @@ function showEndScreen() {
     document.getElementById("questionBody").style = "display: none";
     document.getElementById("question_sum_end").innerHTML = questions.length;
     document.getElementById("rightAnswer").innerHTML = rightAnswers;
-    /* document.getElementById("headerImage").src = "img/brain result.png";*/
+    document.getElementById("trophy").style = "";
 }
 
 function updateToNextQuestion() {
@@ -252,10 +252,9 @@ function resetAnswerButtons() {
 
 
 function restartGame() {
-    /* document.getElementById("headerImage").src = "img/quiz.png"; */
     document.getElementById("questionBody").style = "";
     document.getElementById("endScreen").style = "display: none;";
-    
+    document.getElementById("trophy").style = "display: none;";
     rightAnswers = 0;
     currentQuestion = 0;
     init();
@@ -281,12 +280,14 @@ function changeQuestions(theme) {
     }
 
     document.getElementById("quizTheme").innerHTML = themeTxt;
+    document.getElementById("trophy").style = "display: none;";
     document.getElementById("welcomeSection").style = "";
     document.getElementById("questionBody").style = "display: none;";
     document.getElementById("progress-bar-div").style = "display: none;";
-    
+    document.getElementById("endScreen").style = "display: none;";
     questions = theme;
     init();
+    document.getElementById("endScreenTheme").innerHTML = themeTxt;
 }
 
 function startGame() {
