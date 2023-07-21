@@ -263,7 +263,7 @@ function restartGame() {
 
 function changeQuestions(theme) {
     currentQuestion = 0;
-    generateThemetxt(theme);
+    let themeTxt = generateThemetxt(theme);
 
     document.getElementById("quizTheme").innerHTML = themeTxt;
     document.getElementById("trophy").style = "display: none;";
