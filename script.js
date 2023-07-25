@@ -178,6 +178,7 @@ function showQuestion() {
        showEndScreen();
     }
     else{
+        updateProgressbar();
         updateToNextQuestion();
     }
 }
@@ -273,10 +274,12 @@ function changeQuestions(theme) {
     document.getElementById("progress-bar-div").style = "display: none;";
     document.getElementById("endScreen").style = "display: none;";
     questions = theme;
+    questionsDisabled = 0
     setSelected(themeTxt, "selected");
-    
-    init();
     setSelected(themeTxt, "selectedResponsive");
+    resetAnswerButtons();
+    init();  
+    
     document.getElementById("endScreenTheme").innerHTML = themeTxt;
 }
 
