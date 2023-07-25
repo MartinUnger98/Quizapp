@@ -164,7 +164,7 @@ let currentQuestion = 0;
 let rightAnswers = 0;
 let audioSuccess = new Audio("audio/success.mp3");
 let audioWrong = new Audio("audio/wrong.mp3");
-
+let questionsDisabled = 0;
 
 function init() {
     document.getElementById("question_sum").innerHTML = questions.length;
@@ -178,7 +178,6 @@ function showQuestion() {
        showEndScreen();
     }
     else{
-        updateProgressbar();
         updateToNextQuestion();
     }
 }
@@ -214,32 +213,34 @@ function updateProgressbar() {
 }
 
 function answer(selection) {
-    let right = questions[currentQuestion]["right_answer"];
-    let answerNumber= selection.slice(-1);
-    let list = document.getElementById(selection).parentNode.classList;
-
-    let idRight = `answer_${right}`;
-
-    if(answerNumber == right) {
-        list.add("bg-success");
-        audioSuccess.play();
-        rightAnswers++;       
+    document.getElementById("progress-bar-div").style = "";
+    if(questionsDisabled === 0){
+        let right = questions[currentQuestion]["right_answer"];
+        let answerNumber= selection.slice(-1);
+        let list = document.getElementById(selection).parentNode.classList;
+        let idRight = `answer_${right}`;
+        if(answerNumber == right) {
+            list.add("bg-success");
+            audioSuccess.play();
+            rightAnswers++;       
+        }
+        else{
+            list.add("bg-danger");
+            document.getElementById(idRight).parentNode.classList.add("bg-success");
+            audioWrong.play();
+        }
+        document.getElementById("next_button").disabled = false;
+        updateProgressbar();
     }
-    else{
-        list.add("bg-danger");
-        document.getElementById(idRight).parentNode.classList.add("bg-success");
-        audioWrong.play();
-    }
-
-    document.getElementById("next_button").disabled = false;
+    questionsDisabled++;
 }
 
 function nextQuestion() {
+    questionsDisabled = 0;
     currentQuestion++;   
     document.getElementById("next_button").disabled = true;
     resetAnswerButtons();
     showQuestion();
-   
 }
 
 
@@ -257,6 +258,7 @@ function restartGame() {
     document.getElementById("trophy").style = "display: none;";
     rightAnswers = 0;
     currentQuestion = 0;
+    document.getElementById("progress-bar-div").style = "display: none;";
     init();
     
 }
@@ -264,7 +266,6 @@ function restartGame() {
 function changeQuestions(theme) {
     currentQuestion = 0;
     let themeTxt = generateThemetxt(theme);
-
     document.getElementById("quizTheme").innerHTML = themeTxt;
     document.getElementById("trophy").style = "display: none;";
     document.getElementById("welcomeSection").style = "";
@@ -272,7 +273,10 @@ function changeQuestions(theme) {
     document.getElementById("progress-bar-div").style = "display: none;";
     document.getElementById("endScreen").style = "display: none;";
     questions = theme;
+    setSelected(themeTxt, "selected");
+    
     init();
+    setSelected(themeTxt, "selectedResponsive");
     document.getElementById("endScreenTheme").innerHTML = themeTxt;
 }
 
@@ -297,7 +301,38 @@ function generateThemetxt(theme) {
 }
 
 function startGame() {
-    document.getElementById("progress-bar-div").style = "";
     document.getElementById("questionBody").style = "";
     document.getElementById("welcomeSection").style = "display: none;";
+}
+
+function selected(themeTxt) {
+    let themes = ["HTML", "CSS", "JS", "JAVA"];
+    for (let theme of themes) {
+        document.getElementById("questions" + theme).classList.remove("selected");
+    }
+    document.getElementById("questions" + themeTxt).classList.add("selected");
+
+}
+
+function selectedRespon(themeTxt) {
+    let themes = ["HTML", "CSS", "JS", "JAVA"];
+    for (let theme of themes) {
+        document.getElementById(theme).classList.remove("selectedResponisive");
+    }
+    document.getElementById(themeTxt).classList.add("selectedResponisive");
+    
+}
+
+function setSelected(themeTxt, className) {
+    let themes = ["HTML", "CSS", "JS", "JAVA"];
+    for (let theme of themes) {
+        document.getElementById("questions" + theme).classList.remove(className);
+        document.getElementById(theme).classList.remove(className);
+    }
+    if(className === "selected") {
+        document.getElementById("questions" + themeTxt).classList.add(className);
+    }
+    else {
+        document.getElementById(themeTxt).classList.add(className);
+    }    
 }

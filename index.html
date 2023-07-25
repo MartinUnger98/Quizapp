@@ -34,10 +34,10 @@
           <div class="logo_klein">
             <img src="img/logo.png" alt="" >
           </div>
-          <a href="#" onclick="changeQuestions(questionsHTML)">HTML</a>
-          <a href="#" onclick="changeQuestions(questionsCSS)">CSS</a>
-          <a href="#" onclick="changeQuestions(questionsJS)">JS</a>
-          <a href="#" onclick="changeQuestions(questionsJAVA)">JAVA</a>
+          <a class="selectedResponsive" id="HTML" href="#" onclick="changeQuestions(questionsHTML)">HTML</a>
+          <a id="CSS" href="#" onclick="changeQuestions(questionsCSS)">CSS</a>
+          <a id="JS" href="#" onclick="changeQuestions(questionsJS)">JS</a>
+          <a id="JAVA" href="#" onclick="changeQuestions(questionsJAVA)">JAVA</a>
         </nav>
       </div>
       <div class="center">  
@@ -50,25 +50,25 @@
               <div class="sidebar_text">            
                 <ul class="nav nav-pills flex-column mb-auto">
                   <li >
-                    <a href="#" class="nav-link text-white" onclick="changeQuestions(questionsHTML)">
+                    <a href="#" class="nav-link text-white selected" id="questionsHTML" onclick="changeQuestions(questionsHTML)">
                       <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
                       HTML
                     </a>
                   </li>
                   <li>
-                    <a href="#" class="nav-link text-white" onclick="changeQuestions(questionsCSS)">
+                    <a href="#" class="nav-link text-white" id="questionsCSS" onclick="changeQuestions(questionsCSS)">
                       <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
                       CSS
                     </a>
                   </li>
                   <li>
-                    <a href="#" class="nav-link text-white" onclick="changeQuestions(questionsJS)">
+                    <a href="#" class="nav-link text-white" id="questionsJS" onclick="changeQuestions(questionsJS)">
                       <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
                       JS
                     </a>
                   </li>
                   <li>
-                    <a href="#" class="nav-link text-white" onclick="changeQuestions(questionsJAVA)">
+                    <a href="#" class="nav-link text-white" id="questionsJAVA" onclick="changeQuestions(questionsJAVA)">
                       <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
                       JAVA
                     </a>

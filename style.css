@@ -33,6 +33,18 @@ body {
     font-size: larger;
 }
 
+.selected {
+    border-left: 5px solid white !important;
+    cursor: pointer;
+    transition: 125ms border-left ease-in-out;
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+}
+
+.selectedResponisive {
+    text-decoration: underline;
+}
+
 .bg-success, .bg-danger {
     color: white !important;
 }
@@ -249,6 +261,9 @@ body {
     .logo_klein img {
         width: 50px ;  
         height: 46px ;  
+    }
+    .selectedResponsive {
+        text-decoration: underline !important;
     }
 }
 
