@@ -178,7 +178,6 @@ function showQuestion() {
        showEndScreen();
     }
     else{
-        updateProgressbar();
         updateToNextQuestion();
     }
 }
@@ -195,8 +194,7 @@ function showEndScreen() {
     document.getElementById("trophy").style = "";
 }
 
-function updateToNextQuestion() {
-    
+function updateToNextQuestion() {    
     let question = questions[currentQuestion];
     document.getElementById("current_question").innerHTML = currentQuestion + 1;
     document.getElementById("questiontext").innerHTML = question["question"];
@@ -207,14 +205,18 @@ function updateToNextQuestion() {
 }
 
 function updateProgressbar() {
-    let percent = (currentQuestion + 1)/ questions.length ;
+    let percent = (currentQuestion +1)/ questions.length ;
     percent = Math.round(percent * 100);
     document.getElementById("progress-bar").innerHTML = `${percent} %`;
     document.getElementById("progress-bar").style= `width: ${percent}%;`;
 }
 
+function resetProgressbar() {
+    document.getElementById("progress-bar").innerHTML = `0%`;
+    document.getElementById("progress-bar").style= `width: 0%;`;
+}
+
 function answer(selection) {
-    document.getElementById("progress-bar-div").style = "";
     if(questionsDisabled === 0){
         let right = questions[currentQuestion]["right_answer"];
         let answerNumber= selection.slice(-1);
@@ -259,8 +261,8 @@ function restartGame() {
     document.getElementById("trophy").style = "display: none;";
     rightAnswers = 0;
     currentQuestion = 0;
-    document.getElementById("progress-bar-div").style = "display: none;";
     init();
+    resetProgressbar();
     
 }
 
@@ -278,8 +280,8 @@ function changeQuestions(theme) {
     setSelected(themeTxt, "selected");
     setSelected(themeTxt, "selectedResponsive");
     resetAnswerButtons();
-    init();  
-    
+    init();
+    resetProgressbar();  
     document.getElementById("endScreenTheme").innerHTML = themeTxt;
 }
 
@@ -306,6 +308,7 @@ function generateThemetxt(theme) {
 function startGame() {
     document.getElementById("questionBody").style = "";
     document.getElementById("welcomeSection").style = "display: none;";
+    document.getElementById("progress-bar-div").style = "";
 }
 
 function selected(themeTxt) {
